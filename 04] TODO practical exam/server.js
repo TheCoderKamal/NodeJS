@@ -29,7 +29,6 @@ app.get("/edit/:id", (req, res) => {
 });
 
 app.post("/update", (req, res) => {
-    console.log(req.body);
     tasks.forEach(task => {
         if(task.id == req.body.id){
             task.title = req.body.title;
