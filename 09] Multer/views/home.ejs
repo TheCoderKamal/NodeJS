@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/add-book" method="post" enctype="multipart/form-data">
+        <input type="file" name="image">
+        <input type="text" placeholder="title" name="title">
+        <input type="text" placeholder="author name" name="name">
+        <input type="date" name="publish_date">
+        <input type="number" placeholder="price" name="price">
+        <input type="number " placeholder="sold copies" name="sold_copies">
+        <button type="submit">Add book</button>
+    </form>
+    <div class="">
+        <%books.forEach(book => {%>
+            <img src="/<%=book.image%>" alt="">
+            <h2><%=book.title%></h2>
+            <p><%=book.name%></p>
+            <p><%= new Date(book.publish_date).toLocaleDateString() %></p>
+            <p><%=book.price.toFixed(2)%></p>
+            <p><%=book.sold_copies%></p>
+            <a href=""><button>Edit</button></a>
+            <a href=""><button>Delete</button></a>
+        <%})%>
+    </div>
+</body>
+</html>
