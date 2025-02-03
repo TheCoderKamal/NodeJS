@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const schema = mongoose.Schema({
     image : {
         type : String,
-        required : true,
+        required : true
     },
     title : {
         type : String,
@@ -26,8 +26,8 @@ const schema = mongoose.Schema({
         type : Number,
         required : true,
         min : 0
-    }
+    },
 });
 
-const bookDetails = mongoose.model("BookDatabase", schema);
-module.exports = bookDetails;
+const bookSchema = mongoose.model("BookDatabase", schema);
+module.exports = bookSchema;
