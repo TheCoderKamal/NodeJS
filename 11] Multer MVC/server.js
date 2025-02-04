@@ -1,13 +1,13 @@
 const express = require("express");
-const port = 3001;
-
+const port = 3000;
+const path = require("path")
 const app = express();
 
 const db = require("./config/db");
 
 app.set("view engine", "ejs");
 app.use(express.urlencoded());
-
+app.use("/uploads",express.static(path.join(__dirname,"uploads")))
 
 app.use("/", require("./routes/route"));
 app.use("/add-book", require("./routes/route"));
