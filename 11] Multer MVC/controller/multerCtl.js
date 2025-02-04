@@ -30,15 +30,14 @@ module.exports.editData = async(req, res) => {
 }
 
 module.exports.updateData = async(req, res) => {
-    console.log(req.body)
+
     const singleData = await schema.findById(req.body.id);
     let img;
     
-    console.log(req.file)
     req.file ? img = req.file.path : req.body.image;
     req.file && fs.unlinkSync(singleData.image);
     req.body.image = img;
-    console.log(req.body)
+
     await schema.findByIdAndUpdate(req.body.id, req.body).then(() => {
         res.redirect("/");
     });
