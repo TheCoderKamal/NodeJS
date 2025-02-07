@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Event</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="../public/css/styles.css">
+</head>
+<body class="min-h-screen bg-[#1a1625] text-white flex justify-center items-center">
+    <div class="bg-[#232038] p-8 rounded-lg shadow-lg w-full max-w-lg">
+        <h2 class="text-2xl font-bold mb-6 text-center">Add New Event</h2>
+        <form action="/submitEvent" method="POST" enctype="multipart/form-data" class="space-y-4">
+            <div>
+                <label class="block text-gray-300 mb-2">Event Image</label>
+                <input type="file" name="image" class="w-full p-2 bg-[#1a1625] border border-gray-600 rounded focus:ring-2 focus:ring-[#9b8f25]">
+            </div>
+            <div>
+                <label class="block text-gray-300 mb-2">Title</label>
+                <input type="text" name="title" class="w-full p-2 bg-[#1a1625] border border-gray-600 rounded focus:ring-2 focus:ring-[#9b8f25]" required>
+            </div>
+            <div>
+                <label class="block text-gray-300 mb-2">Location</label>
+                <input type="text" name="location" class="w-full p-2 bg-[#1a1625] border border-gray-600 rounded focus:ring-2 focus:ring-[#9b8f25]" required>
+            </div>
+            <div>
+                <label class="block text-gray-300 mb-2">Time</label>
+                <input type="datetime-local" name="time" class="w-full p-2 bg-[#1a1625] border border-gray-600 rounded focus:ring-2 focus:ring-[#9b8f25]" required>
+            </div>
+            <div>
+                <label class="block text-gray-300 mb-2">Price</label>
+                <input type="number" name="price" class="w-full p-2 bg-[#1a1625] border border-gray-600 rounded focus:ring-2 focus:ring-[#9b8f25]" required>
+            </div>
+            <button type="submit" class="w-full bg-[#9b8f25] hover:bg-[#8a7f20] text-white p-2 rounded font-bold transition-all duration-300">Submit Event</button>
+        </form>
+    </div>
+</body>
+</html>

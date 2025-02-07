@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>District</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="../public/css/styles.css">
+</head>
+<body class="min-h-screen bg-[#1a1625] text-white">
+    <!-- Navigation -->
+    <header class="fixed w-full z-50 glass-nav">
+        <nav class="max-w-7xl mx-auto px-4 flex items-center justify-between h-16">
+            <!-- Logo -->
+            <div class="text-2xl font-light tracking-wider">
+                district<span class="text-[#9b8f25]">.</span>
+            </div>
+
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex flex-1 justify-center gap-4 mx-8">
+                <button class="nav-button text-white rounded-full px-6 py-2 flex justify-center items-center bg-[#9b8f25]">
+                    <i class="ph ph-music-notes text-xl mr-2"></i>
+                    Events
+                </button>
+                <button class="nav-button text-gray-400 rounded-full px-6 py-2 flex justify-center items-center">
+                    <i class="ph ph-film-slate text-xl mr-2"></i>
+                    Movies
+                    <span class="coming-soon-pill">Coming soon</span>
+                </button>
+                <button class="nav-button text-gray-400 rounded-full px-6 py-2 flex justify-center items-center">
+                    <i class="ph ph-fork-knife text-xl mr-2"></i>
+                    Dining
+                    <span class="coming-soon-pill">Coming soon</span>
+                </button>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-white/10">
+                <i class="ph ph-list text-2xl"></i>
+            </button>
+
+            <!-- Right Section -->
+            <div class="hidden md:flex items-center gap-4">
+                <a href="/addData">
+                    <button class="bg-[#9b8f25] hover:bg-[#8a7f20] text-white rounded-full px-4 py-2 flex items-center transition-all duration-300">
+                        <i class="ph ph-plus-circle text-xl mr-2"></i>
+                        Add Movie
+                    </button>
+                </a>
+                <button class="rounded-full p-2 hover:bg-white/10 transition-all duration-300">
+                    <i class="ph ph-user-circle text-2xl"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-black/95 z-40 hidden">
+        <button id="close-menu" class="absolute top-4 right-4 text-white p-2">
+            <i class="ph ph-x text-2xl"></i>
+        </button>
+        <div class="flex flex-col items-center justify-center h-full gap-8">
+            <button class="mobile-nav-button active w-full text-center py-4 text-xl">Events</button>
+            <button class="mobile-nav-button w-full text-center py-4 text-xl text-gray-400">Movies</button>
+            <button class="mobile-nav-button w-full text-center py-4 text-xl text-gray-400">Dining</button>
+        </div>
+    </div>
+
+    <!-- Rest of the content remains same -->
+    <!-- ... Hero Section ... -->
+    <div class="relative py-20 px-4 text-center pt-32 hero-background">
+        <!-- ... Hero content ... -->
+        <div class="max-w-4xl mx-auto">
+            <p class="text-xl mb-2 flex items-center justify-center">
+                <i class="ph ph-bank text-2xl mr-2"></i>
+                IDFC FIRST Bank
+            </p>
+            <h1 class="text-5xl font-bold mb-6">INDIA VS ENGLAND SERIES</h1>
+            <p class="text-gray-300 text-lg mb-8">
+                Get ready for an exhilarating clash as India faces England in the much-anticipated series. Witness your
+                favourite players in action, delivering thrilling moments, big hits, and intense competition.
+            </p>
+            <h2 class="text-3xl font-bold mb-12 flex items-center justify-center">
+                <i class="ph ph-ticket text-3xl mr-2"></i>
+                GRAB YOUR TICKETS NOW!
+            </h2>
+
+            <!-- Carousel Section -->
+            <div class="carousel relative">
+                <div class="carousel-content flex gap-4 overflow-x-hidden p-4">
+                    <% carouselItems.map((e, i) => { %>
+                        <div class="carousel-item min-w-[350px] max-w-sm relative overflow-hidden rounded-3xl bg-indigo-900 p-6 shadow-lg transition-all duration-300 hover:shadow-xl">
+                            <!-- Background Pattern -->
+                            <div class="absolute top-0 left-0 w-full h-full">
+                                <div class="absolute top-0 left-0 w-32 h-32 transform -translate-x-16 -translate-y-16">
+                                    <svg class="w-full h-full text-blue-500/20" viewBox="0 0 100 100">
+                                        <path d="M0 0 L100 0 L50 100 Z" fill="currentColor"/>
+                                    </svg>
+                                </div>
+                                <div class="absolute bottom-0 right-0 w-32 h-32 transform translate-x-16 translate-y-16">
+                                    <svg class="w-full h-full text-red-500/20" viewBox="0 0 100 100">
+                                        <path d="M0 100 L100 100 L50 0 Z" fill="currentColor"/>
+                                    </svg>
+                                </div>
+                            </div>
+            
+                            <!-- Content -->
+                            <div class="relative">
+                                <!-- Logos -->
+                                <div class="flex justify-center mb-6">
+                                    <img src="/<%= e.image %>" alt="Team Logo" class="w-[80%] h-[40%] object-contain">
+                                </div>
+            
+                                <!-- Match Details -->
+                                <div class="space-y-4 mb-6">
+                                    <h2 class="text-lg font-semibold text-white text-center">
+                                        <%= e.title %>
+                                    </h2>
+            
+                                    <!-- Date and Time -->
+                                    <div class="flex items-center text-gray-300 justify-center">
+                                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                        </svg>
+                                        <span><%= e.date %> | <%= e.time %> Onwards</span>
+                                    </div>
+            
+                                    <!-- Location -->
+                                    <div class="flex items-center text-gray-300 justify-center">
+                                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                        </svg>
+                                        <span><%= e.location %></span>
+                                    </div>
+                                </div>
+            
+                                <!-- Price and CTA -->
+                                <div class="flex items-center justify-between">
+                                    <div class="text-white">
+                                        <span class="text-sm">Starting from</span>
+                                        <div class="text-2xl font-bold">₹ <%= e.price %></div>
+                                    </div>
+                                    <div class="flex gap-2">
+                                        <a href="/editData/<%=e._id%>">
+                                            <button class="px-4 py-2 bg-yellow-500 text-white rounded-lg font-semibold hover:bg-yellow-600 transition-colors">
+                                                EDIT
+                                            </button>
+                                        </a>
+                                        <a href="/deleteData/<%=e._id%>">
+                                            <button class="px-4 py-2 bg-red-500 text-white rounded-lg font-semibold hover:bg-red-600 transition-colors">
+                                                DELETE
+                                            </button>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <% }) %>
+                </div>
+            
+                <!-- Carousel Navigation Buttons -->
+                <button class="carousel-button carousel-prev absolute left-2 top-1/2 transform -translate-y-1/2  p-2 rounded-full shadow-lg">
+                    <i class="ph ph-caret-left text-2xl"></i>
+                </button>
+                <button class="carousel-button carousel-next absolute right-2 top-1/2 transform -translate-y-1/2  p-2 rounded-full shadow-lg">
+                    <i class="ph ph-caret-right text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <!-- ... Footer content remains same ... -->
+
+    <script src="../public/js/script.js"></script>
+</body>
+</html>
