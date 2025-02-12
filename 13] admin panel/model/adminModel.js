@@ -35,5 +35,5 @@ const schema = mongoose.Schema({
     },
 });
 
-const bookSchema = mongoose.model("BookDatabase", schema);
-module.exports = bookSchema;
+const adminModel = mongoose.model("adminData", schema);
+module.exports = adminModel;
