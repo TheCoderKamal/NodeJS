@@ -23,7 +23,9 @@ module.exports.logout = (req, res) => {
 }
 
 module.exports.dashboard = (req, res) => {
-    res.cookies.adminData ? res.render("dashboard") : closeDelimiter;
+    let data = req.cookies.adminData
+    
+    data ? res.render("dashboard") : res.redirect("/");
 };
 
 module.exports.adminForm = (req, res) => {
