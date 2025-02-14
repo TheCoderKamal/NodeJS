@@ -1,4 +1,3 @@
-const { closeDelimiter } = require("ejs");
 const model = require("../model/adminModel");
 const fs = require("fs");
 
@@ -17,7 +16,7 @@ module.exports.login = async(req, res) => {
 }
 
 module.exports.logout = (req, res) => {
-    res.session.destroy();
+    req.session.destroy();
     res.redirect("/");
 }
 
