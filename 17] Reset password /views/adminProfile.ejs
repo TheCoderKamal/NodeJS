@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Profile</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: #f8f9fa;
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+        }
+        .card {
+            width: 100%;
+            max-width: 600px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            border: none;
+            background: #ffffff;
+        }
+        .card-header {
+            background: #ffffff;
+            color: #333;
+            border-bottom: 2px solid #ddd;
+            border-radius: 12px 12px 0 0;
+            padding: 1.5rem;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.5rem;
+        }
+        .img-fluid {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin: 15px 0;
+            border: 4px solid #ddd;
+        }
+        .list-group-item {
+            background-color: transparent;
+            border: none;
+            padding: 12px 20px;
+            font-size: 1rem;
+            color: #555;
+        }
+        .list-group-item strong {
+            color: #007bff;
+        }
+        .back-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 8px 18px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+            transition: 0.3s;
+        }
+        .back-btn:hover {
+            background: #0056b3;
+            color: white;
+            text-decoration: none;
+        }
+        .card-body {
+            padding: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <a href="/dashboard" class="back-btn">← Back</a>
+    <div class="container d-flex justify-content-center align-items-center min-vh-100">
+        <div class="card">
+            <div class="card-header">
+                Admin Profile
+            </div>
+            <div class="card-body">
+                <div class="text-center">
+                    <img src="/<%= locals.user.image %>" class="img-fluid" alt="Profile Image">
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item"><strong>First Name:</strong> <%= locals.user.firstName %></li>
+                    <li class="list-group-item"><strong>Last Name:</strong> <%= locals.user.lastName %></li>
+                    <li class="list-group-item"><strong>Email:</strong> <%= locals.user.email %></li>
+                    <li class="list-group-item"><strong>City:</strong> <%= locals.user.city %></li>
+                    <li class="list-group-item"><strong>Gender:</strong> <%= locals.user.gender %></li>
+                    <li class="list-group-item"><strong>Hobbies:</strong> <%= locals.user.hobbies.join(', ') %></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
