@@ -17,9 +17,9 @@ const upload = multer({storage: storage}).single("categoryImage");
 
 route.get("/categoryForm", passport.checkAuth, ctl.categoryForm);
 route.post("/addCategory", upload, ctl.addCategory);
-route.get("/categoryTable", ctl.categoryTable);
-route.get("/deleteCategory/:id", ctl.deleteCategory);
-route.get("/editCategory/:id", ctl.editCategory);
+route.get("/categoryTable", passport.checkAuth, ctl.categoryTable);
+route.get("/deleteCategory/:id", passport.checkAuth, ctl.deleteCategory);
+route.get("/editCategory/:id", passport.checkAuth, ctl.editCategory);
 route.post("/updateCategory", upload, ctl.updateCategory);
 
 module.exports = route;

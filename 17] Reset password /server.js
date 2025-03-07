@@ -30,6 +30,9 @@ app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 app.use("/", require("./routes/route"));    
 app.use("/category", require("./routes/categoryRoute"));
+app.use("/subCategory", require("./routes/subCategoryRoute"));
+app.use("/extraCategory", require("./routes/extraCategoryRoute"));
+app.use("/product", require("./routes/productRoute"));
 
 app.listen(port, err => {
     err ? console.log("error : ", err) : console.log("Server is starting on port : ", port);
